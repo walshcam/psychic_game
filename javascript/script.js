@@ -13,6 +13,22 @@ var losses = 0;
     //Keystroke Counter - If correct key is pressed, keystroke counter resets to 9
     //                      Else keystroke counter decreases by one
 var keystrokeCounter = 9;
+
+//Problem 3:    Randomly generated keystroke
+
+    //Put all letters in an array
+    //Use math.random to find random letter
+    //If keystroke = random letter -> Win!
+    //If keystroke != random letter -> Lose!
+
+//Keys that can be used in game
+
+var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+
+
+// On keystroke, the key is displayed
+
+
 if (userKeystroke=correctKey) {
     keystrokeCounter = 9;
     wins++;
@@ -21,12 +37,12 @@ else {
     keystrokeCounter--;
 }
 
-//Problem 3:    Randomly generated keystroke
+//If keystrokeCounter = 0, the loss counter will increase
 
-    //Put all letters in an array
-    //Use math.random to find random letter
-    //If keystroke = random letter -> Win!
-    //If keystroke != random letter -> Lose!
+if (keystrokeCounter = 0) {
+    losses++;
+    keystrokeCounter = 9;
+}
 
 
 
