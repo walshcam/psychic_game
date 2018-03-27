@@ -28,6 +28,8 @@ var keystrokeArray = [];
 var minKeyCode = 65;
 var maxKeyCode = 90;
 
+//Function to get random key
+
 var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode)
 
 function getRandomInt(min,max) {
@@ -42,19 +44,17 @@ console.log(correctKeyPress)
 
 //Initial numbers written to the page
 
-// function getStarted() {
     document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
     document.getElementById('win').innerHTML = wins;
     document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
     document.getElementById('loss').innerHTML = losses;
-// }
-//letter event keycodes 65-90
+    document.getElementById('keyArray').innerHTML = keystrokeArray;
 
-// On keystroke, the key is displayed (addeventlistener)
+// Event on keydown
 
 document.onkeydown = function(event) {
     // getStarted()
-    var key_Press = String.fromCharCode(event.keyCode);
+    var key_Press = event.key.toUpperCase();
     var key_Code = event.keyCode;
     document.getElementById('kp').innerHTML = key_Press;
 
@@ -72,6 +72,7 @@ document.onkeydown = function(event) {
                 document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
                 document.getElementById('win').innerHTML = wins;
                 document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
+                document.getElementById('keyArray').innerHTML = keystrokeArray;
             }
             else if (keystrokeCounter === 0) {
                 losses = losses + 1;
@@ -79,35 +80,16 @@ document.onkeydown = function(event) {
                 keystrokeArray = [];
                 document.getElementById('loss').innerHTML = losses;
                 document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
+                document.getElementById('keyArray').innerHTML = keystrokeArray;
             }
             else {
                 keystrokeCounter = keystrokeCounter - 1;
+                keystrokeArray.push(key_Press);
                 document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
+                document.getElementById('keyArray').innerHTML = keystrokeArray;
             }
     }
 }
-// document.getElementById('keystrokeCount').innerHTML = "9";
-// document.getElementById('win').innerHTML = wins;
-// document.getElementById('loss').innerHTML = losses;
-console.log(keystrokeCounter)
-console.log(wins)
-console.log(losses)
-
-//If keystrokeCounter = 0, the loss counter will increase
-
-// console.log(key_Press)
-// console.log(key_Code)
-
-// Generate Array of Key Strokes
-
-
-
-// var userKeyStroke = event.keyCode;
-
-// console.log(userKeyStroke)
-
-
-
 
 
 //Additional Ideas:
