@@ -42,18 +42,18 @@ console.log(correctKeyPress)
 
 //Initial numbers written to the page
 
-function getStarted() {
+// function getStarted() {
     document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
     document.getElementById('win').innerHTML = wins;
     document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
     document.getElementById('loss').innerHTML = losses;
-}
+// }
 //letter event keycodes 65-90
 
 // On keystroke, the key is displayed (addeventlistener)
 
 document.onkeydown = function(event) {
-    getStarted()
+    // getStarted()
     var key_Press = String.fromCharCode(event.keyCode);
     var key_Code = event.keyCode;
     document.getElementById('kp').innerHTML = key_Press;
