@@ -40,13 +40,20 @@ var correctKeyPress = String.fromCharCode(correctKeyCode)
 console.log(correctKeyCode)
 console.log(correctKeyPress)
 
-// var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+//Initial numbers written to the page
 
+function getStarted() {
+    document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
+    document.getElementById('win').innerHTML = wins;
+    document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
+    document.getElementById('loss').innerHTML = losses;
+}
 //letter event keycodes 65-90
 
 // On keystroke, the key is displayed (addeventlistener)
 
 document.onkeydown = function(event) {
+    getStarted()
     var key_Press = String.fromCharCode(event.keyCode);
     var key_Code = event.keyCode;
     document.getElementById('kp').innerHTML = key_Press;
@@ -59,30 +66,34 @@ document.onkeydown = function(event) {
             if (key_Code === correctKeyCode) {
                 console.log('validate')
                 keystrokeCounter = 9;
-                wins = wins++;
+                wins = wins + 1;
                 keystrokeArray = [];
                 correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
-                document.getElementById('winningkey').innerHTML = correctKeyCode;
+                document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
+                document.getElementById('win').innerHTML = wins;
+                document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
+            }
+            else if (keystrokeCounter === 0) {
+                losses = losses + 1;
+                keystrokeCounter = 9;
+                keystrokeArray = [];
+                document.getElementById('loss').innerHTML = losses;
+                document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
             }
             else {
-                keystrokeCounter = keystrokeCounter--;
+                keystrokeCounter = keystrokeCounter - 1;
+                document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
             }
     }
 }
-document.getElementById('keystrokeCount').innerHTML = 9;
-document.getElementById('win').innerHTML = wins;
-document.getElementById('loss').innerHTML = losses;
+// document.getElementById('keystrokeCount').innerHTML = "9";
+// document.getElementById('win').innerHTML = wins;
+// document.getElementById('loss').innerHTML = losses;
 console.log(keystrokeCounter)
 console.log(wins)
 console.log(losses)
 
 //If keystrokeCounter = 0, the loss counter will increase
-
-// if (keystrokeCounter = 0) {
-//     losses++;
-//     keystrokeCounter = 9;
-//     keystrokeArray = [];
-// }
 
 // console.log(key_Press)
 // console.log(key_Code)
