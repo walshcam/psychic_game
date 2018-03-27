@@ -43,12 +43,13 @@ console.log(correctKeyCode)
 console.log(correctKeyPress)
 
 //Initial numbers written to the page
-
-    document.getElementById('winningkey').innerHTML = String.fromCharCode(correctKeyCode);
+    document.getElementById('winningkey').innerHTML = correctKeyPress;
     document.getElementById('win').innerHTML = wins;
     document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
     document.getElementById('loss').innerHTML = losses;
     document.getElementById('keyArray').innerHTML = keystrokeArray;
+
+
 
 // Event on keydown
 
@@ -56,7 +57,6 @@ document.onkeydown = function(event) {
     // getStarted()
     var key_Press = event.key.toUpperCase();
     var key_Code = event.keyCode;
-    document.getElementById('kp').innerHTML = key_Press;
 
     
     if (key_Code >= minKeyCode && key_Code <= maxKeyCode) {
@@ -84,9 +84,8 @@ document.onkeydown = function(event) {
             }
             else {
                 keystrokeCounter = keystrokeCounter - 1;
-                keystrokeArray.push(key_Press);
                 document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
-                document.getElementById('keyArray').innerHTML = keystrokeArray;
+                document.getElementById('keyArray').innerHTML = keystrokeArray.join(' ');
             }
     }
 }
