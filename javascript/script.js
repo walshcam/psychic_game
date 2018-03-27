@@ -14,6 +14,8 @@ var losses = 0;
     //                      Else keystroke counter decreases by one
 var keystrokeCounter = 9;
 
+var keystrokeArray = [];
+
 //Problem 3:    Randomly generated keystroke
 
     //Put all letters in an array
@@ -26,7 +28,7 @@ var keystrokeCounter = 9;
 var minKeyCode = 65;
 var maxKeyCode = 90;
 
-var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode)
+var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
 
 function getRandomInt(min,max) {
     min = Math.ceil(min);
@@ -37,8 +39,6 @@ function getRandomInt(min,max) {
 var correctKeyPress = String.fromCharCode(correctKeyCode)
 console.log(correctKeyCode)
 console.log(correctKeyPress)
-console.log(minKeyCode)
-//Keys that can be used in game
 
 var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
 
@@ -49,31 +49,42 @@ var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j',
 document.onkeydown = function(event) {
     var key_Press = String.fromCharCode(event.keyCode);
     var key_Code = event.keyCode;
+    document.getElementById('kp').innerHTML = key_Press;
+    if (key_Code >= minKeyCode && key_Code <= maxKeyCode) {
+        keystrokeArray.push(key_Press);
+            // Keystroke Counter
+
+            if (userKeyStroke=correctKeyCode) {
+                keystrokeCounter = 9;
+                wins++;
+                keystrokeArray = [];
+                correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
+            }
+            else {
+                keystrokeCounter--;
+            }
+    }
+
+//If keystrokeCounter = 0, the loss counter will increase
+
+if (keystrokeCounter = 0) {
+    losses++;
+    keystrokeCounter = 9;
+    keystrokeArray = [];
 }
+
 console.log(key_Press)
 console.log(key_Code)
+
+// Generate Array of Key Strokes
+
 
 
 // var userKeyStroke = event.keyCode;
 
 // console.log(userKeyStroke)
 
-// // Keystroke Counter
 
-// if (userKeyStroke=correctKey) {
-//     keystrokeCounter = 9;
-//     wins++;
-// }
-// else {
-//     keystrokeCounter--;
-// }
-
-// //If keystrokeCounter = 0, the loss counter will increase
-
-// if (keystrokeCounter = 0) {
-//     losses++;
-//     keystrokeCounter = 9;
-// }
 
 
 
