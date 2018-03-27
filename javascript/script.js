@@ -28,7 +28,7 @@ var keystrokeArray = [];
 var minKeyCode = 65;
 var maxKeyCode = 90;
 
-var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
+var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode)
 
 function getRandomInt(min,max) {
     min = Math.ceil(min);
@@ -40,7 +40,7 @@ var correctKeyPress = String.fromCharCode(correctKeyCode)
 console.log(correctKeyCode)
 console.log(correctKeyPress)
 
-var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
+// var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
 
 //letter event keycodes 65-90
 
@@ -50,31 +50,42 @@ document.onkeydown = function(event) {
     var key_Press = String.fromCharCode(event.keyCode);
     var key_Code = event.keyCode;
     document.getElementById('kp').innerHTML = key_Press;
+
+    
     if (key_Code >= minKeyCode && key_Code <= maxKeyCode) {
         keystrokeArray.push(key_Press);
             // Keystroke Counter
 
-            if (userKeyStroke=correctKeyCode) {
+            if (key_Code === correctKeyCode) {
+                console.log('validate')
                 keystrokeCounter = 9;
-                wins++;
+                wins = wins++;
                 keystrokeArray = [];
                 correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
+                document.getElementById('winningkey').innerHTML = correctKeyCode;
             }
             else {
-                keystrokeCounter--;
+                keystrokeCounter = keystrokeCounter--;
             }
     }
+}
+document.getElementById('keystrokeCount').innerHTML = 9;
+document.getElementById('win').innerHTML = wins;
+document.getElementById('loss').innerHTML = losses;
+console.log(keystrokeCounter)
+console.log(wins)
+console.log(losses)
 
 //If keystrokeCounter = 0, the loss counter will increase
 
-if (keystrokeCounter = 0) {
-    losses++;
-    keystrokeCounter = 9;
-    keystrokeArray = [];
-}
+// if (keystrokeCounter = 0) {
+//     losses++;
+//     keystrokeCounter = 9;
+//     keystrokeArray = [];
+// }
 
-console.log(key_Press)
-console.log(key_Code)
+// console.log(key_Press)
+// console.log(key_Code)
 
 // Generate Array of Key Strokes
 
