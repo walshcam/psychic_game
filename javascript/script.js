@@ -21,28 +21,59 @@ var keystrokeCounter = 9;
     //If keystroke = random letter -> Win!
     //If keystroke != random letter -> Lose!
 
+//Random key generator - Found on Firefox MDN
+
+var minKeyCode = 65;
+var maxKeyCode = 90;
+
+var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode)
+
+function getRandomInt(min,max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+  }
+
+var correctKeyPress = String.fromCharCode(correctKeyCode)
+console.log(correctKeyCode)
+console.log(correctKeyPress)
+console.log(minKeyCode)
 //Keys that can be used in game
 
 var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m'];
 
+//letter event keycodes 65-90
 
-// On keystroke, the key is displayed
+// On keystroke, the key is displayed (addeventlistener)
 
-
-if (userKeystroke=correctKey) {
-    keystrokeCounter = 9;
-    wins++;
+document.onkeydown = function(event) {
+    var key_Press = String.fromCharCode(event.keyCode);
+    var key_Code = event.keyCode;
 }
-else {
-    keystrokeCounter--;
-}
+console.log(key_Press)
+console.log(key_Code)
 
-//If keystrokeCounter = 0, the loss counter will increase
 
-if (keystrokeCounter = 0) {
-    losses++;
-    keystrokeCounter = 9;
-}
+// var userKeyStroke = event.keyCode;
+
+// console.log(userKeyStroke)
+
+// // Keystroke Counter
+
+// if (userKeyStroke=correctKey) {
+//     keystrokeCounter = 9;
+//     wins++;
+// }
+// else {
+//     keystrokeCounter--;
+// }
+
+// //If keystrokeCounter = 0, the loss counter will increase
+
+// if (keystrokeCounter = 0) {
+//     losses++;
+//     keystrokeCounter = 9;
+// }
 
 
 
