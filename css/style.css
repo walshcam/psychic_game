@@ -4,3 +4,7 @@
     border-radius: 1rem;
     border-width: 5px;
 }
+
+.cursor2 {
+    cursor : pointer;
+}

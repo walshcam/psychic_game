@@ -25,6 +25,23 @@ var keystrokeArray = [];
 
 //Random key generator - Found on Firefox MDN
 
+                    //Difficulty Settings
+
+                    //Swap the difficulty on html to Easy, Medium, Hard
+
+
+                    var difficulty = (function() {
+                        var difficultyArray = ['Easy','Medium','Hard'];
+                        var count = -1;
+                        console.log(count)
+                        return function() {
+                            return difficultyArray[++count % difficultyArray.length];
+                            console.log(difficultyArray[++count % difficultyArray.length])
+                        }
+                    }());
+
+                    //change the maxKeyCode depending on setting
+
 var minKeyCode = 65;
 var maxKeyCode = 90;
 
@@ -48,6 +65,7 @@ console.log(correctKeyPress)
     document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
     document.getElementById('loss').innerHTML = losses;
     document.getElementById('keyArray').innerHTML = keystrokeArray;
+    // document.getElementById("difficultySetting").innerHTML = difficultyArray[difficulty];
 
 
 
