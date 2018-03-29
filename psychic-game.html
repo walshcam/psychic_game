@@ -17,6 +17,10 @@
     <div class = "jumbotron">
         <h1 class = "display-3 text-center">The Psychic Game</h1>
         <p class = "lead text-center">Are you gifted enough to outsmart the computer?</p>
+        <p class = "lead text-center"><strong>EASY</strong> - Letter Keys Only - 9 Attempts</p>
+        <p class = "lead text-center"><strong>MEDIUM</strong> - Letters AND Number Keys - 9 Attempts</p>
+        <p class = "lead text-center"><strong>HARD</strong> - Letters AND Number Keys - 5 Attempts</p>
+        <p class = "lead text-center"><strong>PSYCHIC</strong> - Letters AND Number Keys - 1 Attempt</p>
 
 
     </div>
@@ -94,11 +98,11 @@
             </div>
  
             <div class = "col text-center border-rounded m-2 pb-4 pt-4 font-weight-bold bg-white">
-                <h2 class = "cursor2" onclick = "document.getElementById('difficultySetting').innerHTML = difficulty()">DIFFICULTY</h2>
+                <h2>DIFFICULTY</h2>
             </div>
                         
             <div class = "col text-center border-rounded m-2 pb-4 pt-4 font-weight-bold bg-white">
-                <h3 id= "difficultySetting">Hard</h3>
+                <h3 class="cursor2" id= "difficultySetting">EASY</h3>
             </div>
 
             <div class = "col">
@@ -130,7 +134,7 @@ Keys Used: <span id="keyArray"></span>
 
     <!-- Have javascript at the bottom so that it loads last -->
 
-    <script src="javascript/script.js"></script>
+    <script src="javascript/difficulty.js"></script>
 
 
 </body>

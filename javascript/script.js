@@ -24,26 +24,45 @@ var keystrokeArray = [];
     //If keystroke != random letter -> Lose!
 
 //Random key generator - Found on Firefox MDN
+var minKeyCode = 65;
+var maxKeyCode = 90;
 
                     //Difficulty Settings
 
                     //Swap the difficulty on html to Easy, Medium, Hard
 
-
                     var difficulty = (function() {
-                        var difficultyArray = ['Easy','Medium','Hard'];
-                        var count = -1;
+                        var difficultyArray = ['Easy','Medium','Hard','Psychic'];
+                        var count = 0;
                         console.log(count)
                         return function() {
                             return difficultyArray[++count % difficultyArray.length];
-                            console.log(difficultyArray[++count % difficultyArray.length])
                         }
                     }());
+document.addEventListener('difficultySetting').onclick = function() {
+                        if (difficulty === 'Easy') {
+                            keystrokeCounter = 9;
+                            keyArray = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+                        }
+
+                        if (difficulty === 'Medium') {
+                            keystrokeCounter = 9;
+                            minKeyCode = 65;
+
+                        }
+                        
+                        if (difficulty === 'Hard') {
+                            keystrokeCounter = 5;
+                            minKeyCode = 55;
+                        }
+                    
+                        if (difficulty === 'Psychic') {
+                            keystrokeCounter = 1;
+                            minKeyCode = 55;
+                        }
+                    }
 
                     //change the maxKeyCode depending on setting
-
-var minKeyCode = 65;
-var maxKeyCode = 90;
 
 //Function to get random key
 
@@ -52,7 +71,11 @@ var correctKeyCode = getRandomInt(minKeyCode,maxKeyCode)
 function getRandomInt(min,max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    var letter = Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+    if (letter <= 64) {
+        letter = letter - 7;
+    }
+    return letter;
   }
 
 var correctKeyPress = String.fromCharCode(correctKeyCode)
@@ -75,8 +98,8 @@ document.onkeydown = function(event) {
     // getStarted()
     var key_Press = event.key.toUpperCase();
     var key_Code = event.keyCode;
-
-    
+    console.log(event);
+ 
     if (key_Code >= minKeyCode && key_Code <= maxKeyCode) {
         keystrokeArray.push(key_Press);
             // Keystroke Counter
@@ -84,6 +107,7 @@ document.onkeydown = function(event) {
             if (key_Code === correctKeyCode) {
                 console.log('validate')
                 keystrokeCounter = 9;
+                difficultyKeystrokeChanger();
                 wins = wins + 1;
                 keystrokeArray = [];
                 correctKeyCode = getRandomInt(minKeyCode,maxKeyCode);
@@ -95,6 +119,7 @@ document.onkeydown = function(event) {
             else if (keystrokeCounter === 0) {
                 losses = losses + 1;
                 keystrokeCounter = 9;
+                difficultyKeystrokeChanger();
                 keystrokeArray = [];
                 document.getElementById('loss').innerHTML = losses;
                 document.getElementById('keystrokeCount').innerHTML = keystrokeCounter;
