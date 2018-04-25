@@ -4,7 +4,9 @@
 
 ### ***What is it?***
 
-A game that allows you to guess the computer key selected by the computer. It answers the question once and for all: Are you psychic?
+A game that allows you to guess the computer key selected by the computer. It answers the question once and for all: 
+
+Are you psychic?
 
 ### ***How to play***
 
