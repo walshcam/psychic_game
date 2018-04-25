@@ -50,63 +50,53 @@ function difficultyEvent() {
 document.getElementById("difficultySetting").addEventListener('click', difficultyEvent);
 
 //**************Initial Computer Choice******************
+function computerDifficulty(x) {
+    correctKeyPress = x.keystrokeArray[Math.floor(Math.random()*x.keystrokeArray.length)];
+    keystrokeCounter2 = x.keystrokeCounter;
+    document.getElementById('winningkey').innerHTML = correctKeyPress;
+    document.getElementById('keystrokeCount').innerHTML = x.keystrokeCounter;
+}
 
 if (difficulty === "EASY") {
-    correctKeyPress = easy.keystrokeArray[Math.floor(Math.random()*easy.keystrokeArray.length)];
-    keystrokeCounter2 = easy.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = easy.keystrokeCounter;
+    computerDifficulty(easy);
 }
 
 if (difficulty === "MEDIUM") {
-    correctKeyPress = medium.keystrokeArray[Math.floor(Math.random()*medium.keystrokeArray.length)];
-    keystrokeCounter2 = medium.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = medium.keystrokeCounter;
+    computerDifficulty(medium);
 }
 
 if (difficulty === "HARD") {
-    correctKeyPress = hard.keystrokeArray[Math.floor(Math.random()*hard.keystrokeArray.length)];
-    keystrokeCounter2 = hard.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = hard.keystrokeCounter;
+    computerDifficulty(hard);
 }
 
-if (difficulty === "PSYCHIC") {
-    correctKeyPress = psychic.keystrokeArray[Math.floor(Math.random()*psychic.keystrokeArray.length)];
-    keystrokeCounter2 = psychic.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = psychic.keystrokeCounter;
+if (difficulty === "PSYCHO") {
+    computerDifficulty(psycho);
 }
 //*********CHANGE COMPUTER CHOICE WITH CLICK
 
 document.getElementById("difficultySetting").addEventListener('click',function() {
-if (difficulty === "EASY") {
-    correctKeyPress = easy.keystrokeArray[Math.floor(Math.random()*easy.keystrokeArray.length)];
-    keystrokeCounter2 = easy.keystrokeCounter;
+
+function clickDifficulty(y) {
+    correctKeyPress = y.keystrokeArray[Math.floor(Math.random()*y.keystrokeArray.length)];
+    keystrokeCounter2 = y.keystrokeCounter;
     document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = easy.keystrokeCounter;
+    document.getElementById('keystrokeCount').innerHTML = y.keystrokeCounter;
+}
+
+if (difficulty === "EASY") {
+    clickDifficulty(easy)
 }
 
 if (difficulty === "MEDIUM") {
-    correctKeyPress = medium.keystrokeArray[Math.floor(Math.random()*medium.keystrokeArray.length)];
-    keystrokeCounter2 = medium.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = medium.keystrokeCounter;
+    clickDifficulty(medium)
 }
 
 if (difficulty === "HARD") {
-    correctKeyPress = hard.keystrokeArray[Math.floor(Math.random()*hard.keystrokeArray.length)];
-    keystrokeCounter2 = hard.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = hard.keystrokeCounter;
+    clickDifficulty(hard)
 }
 
 if (difficulty === "PSYCHIC") {
-    correctKeyPress = psychic.keystrokeArray[Math.floor(Math.random()*psychic.keystrokeArray.length)];
-    keystrokeCounter2 = psychic.keystrokeCounter;
-    document.getElementById('winningkey').innerHTML = correctKeyPress;
-    document.getElementById('keystrokeCount').innerHTML = psychic.keystrokeCounter;
+    clickDifficulty(psychic)
 }
 })
 
